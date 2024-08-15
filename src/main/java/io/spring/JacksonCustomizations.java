@@ -21,7 +21,7 @@ public class JacksonCustomizations {
 
   public static class RealWorldModules extends SimpleModule {
     public RealWorldModules() {
-      addSerializer(DateTime.class, new DateTimeSerializer());
+      addSerializer(DateTime.class, new DateTimeSerializer()); 
     }
   }
 
