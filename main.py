@@ -18,8 +18,8 @@ import summary_agent
 import tiktoken
 import subprocess
 
-os.environ["OPENAI_API_KEY"] = "sk-WHRCoUdd39GWq4RW084f16CeBaAc4f21BdD178F6Ba55Fd80"
-os.environ["OPENAI_API_BASE"] = "https://api.xty.app/v1"
+os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_BASE"] = ""
 
 #default connect to localhost 8000
 new_client = chromadb.HttpClient()
