@@ -13,7 +13,6 @@ chroma
 termcolor
 jsonpatch
 jsonpath-ng
---extra-index-url https://mirrors.tencent.com/repository/pypi/tencent_pypi/simple
 chromadb==0.5.3
 tiktoken
 sentence-transformers

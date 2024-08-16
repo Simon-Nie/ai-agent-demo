@@ -1,0 +1,203 @@
+{
+    "riskLevel": "Medium",
+    "comments": "The upgrade of joda-time from version 2.10.13 to 2.12.7 introduces changes that may affect the API compatibility. Specifically, there could be deprecations and behavioral changes. Since multiple classes in the project use the joda-time library directly, testing is recommended before applying this upgrade.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java"
+        },
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "src/main/java/io/spring/JacksonCustomizations.java"
+        }
+    ]
+}
+
+{
+    "riskLevel": "Medium",
+    "comments": "The upgrade of joda-time:joda-time from version 2.10.13 to 2.12.7 includes several breaking changes and potential API incompatibilities. Significant internal changes may affect the functioning of date-time handling related features, and conflicts may arise with other dependencies relying on this library. Comprehensive testing is recommended before finalizing this upgrade.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "not specified"
+        },
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "not specified"
+        },
+        {
+            "class": "io.spring.infrastructure.mybatis.DateTimeHandler",
+            "path": "not specified"
+        }
+    ]
+}
+
+
+{
+    "riskLevel": "Medium",
+    "comments": "The upgrade of joda-time:joda-time from version 2.10.13 to 2.12.7 may cause compatibility issues due to changes in the API. The classes "io.spring.application.DateTimeCursor" and "io.spring.JacksonCustomizations$DateTimeSerializer" directly use the org.joda.time.DateTime class. It is advisable to thoroughly test these components to ensure they function correctly with the updated library version.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java"
+        },
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "src/main/java/io/spring/JacksonCustomizations.java"
+        }
+    ]
+}
+
+
+{
+    "riskLevel": "Low",
+    "comments": "The upgrade of the \"joda-time\" library from version 2.10.13 to 2.12.7 is considered low risk. Joda-Time is a well-maintained library, and the changes between these two versions are expected to include minor bug fixes and potential small improvements. No major or breaking changes are recorded between these versions. Moreover, the dependency tree indicates that there are no conflicting dependencies that could cause issues due to this upgrade. The search indicates that specific classes within the project, such as \"io.spring.application.DateTimeCursor\" and \"io.spring.JacksonCustomizations$DateTimeSerializer\", directly utilize the \"joda-time\" library, confirming the upgrade\"s relevance.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java"
+        },
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "src/main/java/io/spring/JacksonCustomizations.java"
+        }
+    ]
+}
+
+
+{
+    "riskLevel": "Medium",
+    "comments": "The dependency \"joda-time\" has been upgraded from version 2.10.13 to 2.12.7. Joda-Time is a widely used library for handling date and time in Java, and changes to its version can impact applications if there are any backward-incompatible changes or deprecations in the library. The usage of Joda-Time is quite typical in projects dealing with complex date-time manipulations. While no major compatibility issues have been found regarding version 2.12.7, it\"s prudent to perform testing after the upgrade due to potential discrepancies in date-time behaviors, especially when interacting with other APIs or if the newer version has optimizations or bug fixes that may alter logic or functionality inadvertently.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java"
+        },
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "src/main/java/io/spring/JacksonCustomizations.java"
+        }
+    ]
+}
+
+
+{
+    "riskLevel": "Low",
+    "comments": "Updating from version 2.10.13 to 2.12.7 of joda-time is a minor version upgrade. joda-time library is often stable between minor releases. No other dependencies in the tree are affected by this change. Ensure any deprecated methods are not used.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java"
+        },
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "src/main/java/io/spring/JacksonCustomizations.java"
+        }
+    ]
+}
+
+{
+    "riskLevel": "Medium",
+    "comments": "The upgrade from joda-time 2.10.13 to 2.12.7 introduces several enhancements and bug fixes. However, there can be compatibility issues if methods or classes have been deprecated or changed. Specific dependencies on joda-time in the classes should be tested thoroughly.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java"
+        },
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "src/main/java/io/spring/JacksonCustomizations.java"
+        },
+        {
+            "class": "io.spring.infrastructure.mybatis.DateTimeHandler",
+            "path": "src/main/java/io/spring/infrastructure/mybatis/DateTimeHandler.java"
+        }
+    ]
+}
+
+
+{
+    "riskLevel": "Low",
+    "comments": "The update from Joda-Time 2.10.13 to 2.12.7 is a minor version upgrade. Such upgrades typically include bug fixes and minor improvements, with minimal risk of breaking changes. Compatibility issues are unlikely unless specific deprecated methods have been removed. Usage is limited to serialization functions.",
+    "usage": [
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "src/main/java/io/spring/JacksonCustomizations.java"
+        },
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java"
+        }
+    ]
+}
+
+
+{
+    "riskLevel": "Low",
+    "comments": "The joda-time library is not shown to have significant compatibility issues in recent updates. The transition from version 2.10.13 to 2.12.7 primarily includes minor improvements and bug fixes without breaking changes. Additionally, the classes using joda-time are mainly focused on date and time utilities, which are expected to function correctly as no core fundamental changes were introduced in this version upgrade.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java"
+        }
+    ],
+    "changes": {
+        "groupId": "joda-time",
+        "artifactId": "joda-time",
+        "oldVersion": "2.10.13",
+        "newVersion": "2.12.7"
+    }
+}
+
+{
+    "riskLevel": "Medium",
+    "comments": "Upgrading `joda-time` from version `2.10.13` to `2.12.7` may introduce breaking changes in the API. Classes that directly use `joda-time` functionalities such as `DateTime` and `DateTimeZone` might be affected, thus impacting multiple parts of the codebase that handle date and time operations.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java"
+        },
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "src/main/java/io/spring/JacksonCustomizations.java"
+        }
+    ],
+    "changes": {
+        "groupId": "joda-time",
+        "artifactId": "joda-time",
+        "oldVersion": "2.10.13",
+        "newVersion": "2.12.7"
+    }
+}
+
+
+{
+    "riskLevel": "Medium",
+    "comments": "Upgrading `joda-time` from version `2.10.13` to `2.12.7` may introduce breaking changes in the API. Classes that directly use `joda-time` functionalities such as `DateTime` and `DateTimeZone` might be affected, thus impacting multiple parts of the codebase that handle date and time operations.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java",
+            "lastCommitInfo": {
+                "commitId": "06edf4ebab98114ce6cb1eacd53f3991ab88a648",
+                "jiraId": "C12345G-666",
+                "author": "\u6e29\u8273\u79c0"
+            }
+        },
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "src/main/java/io/spring/JacksonCustomizations.java",
+            "lastCommitInfo": {
+                "commitId": "5457902b5439e3b62f85d9fc0135d65f9beec5d4",
+                "jiraId": "C12345G-555",
+                "author": "\u6e29\u8273\u79c0"
+            }
+        }
+    ],
+    "changes": {
+        "groupId": "joda-time",
+        "artifactId": "joda-time",
+        "oldVersion": "2.10.13",
+        "newVersion": "2.12.7"
+    }
+}

@@ -15,8 +15,8 @@ Given a JSON input that includes a risk assessment, comments, changes of jar dep
     - Identify which lines/functions use the artifact function in "changes" node.
     
 2. **Identify last commit info for each files in "usage" node**:
-    - Retrieve the last commit id for the output of step #1.
-    - Retrieve the commit message and author of the commit id.
+    - Retrieve the last commit id for the output of step #1, notice it is to find out the lines using the dependency mentioned in "changes" node
+    - Retrieve the commit message and author of the commit id for all lines retrieved above, of course remove the duplications.
     - Analyze the commit messages to extract JIRA IDs that follow common patterns (e.g., C123456G-124, C12355-121).
     - Now, clearly know the key three value: "commitId", "jiraId", "author" of the commit for each files
 
@@ -28,60 +28,60 @@ Given a JSON input that includes a risk assessment, comments, changes of jar dep
 
 Here is the JSON input structure and example:
 ```json
-{
+{{
     "riskLevel": "Low",
     "comments": "The joda-time library is not shown to have significant compatibility issues in recent updates. The transition from version 2.10.13 to 2.12.7 primarily includes minor improvements and bug fixes without breaking changes. Additionally, the classes using joda-time are mainly focused on date and time utilities, which are expected to function correctly as no core fundamental changes were introduced in this version upgrade.",
     "usage": [
-        {
+        {{
             "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
             "path": "src/main/java/io/spring/JacksonCustomizations.java"
-        },
-        {
+        }},
+        {{
             "class": "io.spring.application.DateTimeCursor",
             "path": "src/main/java/io/spring/application/DateTimeCursor.java"
-        }
+        }}
     ],
-    "changes": {
+    "changes": {{
         "groupId": "joda-time",
         "artifactId": "joda-time",
         "oldVersion": "2.10.13",
         "newVersion": "2.12.7"
-    }
-}
+    }}
+}}
 ```
 
 Here is the JSON output structure and example, just enhance on input json:
 ```json
-{
+{{
     "riskLevel": "Low",
     "comments": "The update from Joda-Time 2.10.13 to 2.12.7 is a minor version upgrade. Such upgrades typically include bug fixes and minor improvements, with minimal risk of breaking changes. Compatibility issues are unlikely unless specific deprecated methods have been removed. Usage is limited to serialization functions.",
     "usage": [
-        {
+        {{
             "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
             "path": "src/main/java/io/spring/JacksonCustomizations.java",
-            "lastCommitInfo": {
+            "lastCommitInfo": {{
                 "commitId": "7dd7cba",
                 "jiraId": ""C345678G-890"",
                 "author": "A Name"
-            }
-        },
-        {
+            }}
+        }},
+        {{
             "class": "io.spring.application.DateTimeCursor",
             "path": "src/main/java/io/spring/application/DateTimeCursor.java",
-            "lastCommitInfo": {
+            "lastCommitInfo": {{
                 "commitId": "7dd7cba",
                 "jiraId": ""C345678G-890"",
                 "author": "A Name"
-            }
-        }
+            }}
+        }}
     ],
-    "changes": {
+    "changes": {{
         "groupId": "joda-time",
         "artifactId": "joda-time",
         "oldVersion": "2.10.13",
         "newVersion": "2.12.7"
-    }
-}
+    }}
+}}
 ```
 
 
@@ -131,7 +131,9 @@ Begin! Reminder to ALWAYS respond with a valid json blob of a single action. Use
 
 HUMAN_PROMPT = """
 the input is below, a JSON input that includes a risk assessment, comments, and a list of Java files with their paths
+```
 {input}
+```
 
 think history:
 {agent_scratchpad}
