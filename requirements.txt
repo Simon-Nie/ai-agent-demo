@@ -19,3 +19,5 @@ sentence-transformers
 dspy-ai
 jinja2
 pyinstaller
+langchain-google-vertexai
+google-cloud-aiplatform

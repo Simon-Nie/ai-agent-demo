@@ -17,14 +17,31 @@ import test_scope_evaluation_agent
 import summary_agent
 import tiktoken
 import subprocess
+from langchain_google_vertexai import ChatVertexAI
+from langchain_google_vertexai import VertexAIEmbeddings
+import vertexai
 
-os.environ["OPENAI_API_KEY"] = ""
-os.environ["OPENAI_API_BASE"] = ""
+proxy = 'http://127.0.0.1:10809'
+
+os.environ['http_proxy'] = proxy 
+os.environ['https_proxy'] = proxy
+
+# os.environ["OPENAI_API_KEY"] = "sk-WHRCoUdd39GWq4RW084f16CeBaAc4f21BdD178F6Ba55Fd80"
+# os.environ["OPENAI_API_BASE"] = "https://api.xty.app/v1"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'ai-demo-432913-b820376b051c.json'
+os.environ['GOOGLE_API_KEY'] = 'AIzaSyCDTV4x4n7g08wf2ppo-SSTBSq4xJ5WrpY'
 
 #default connect to localhost 8000
-new_client = chromadb.HttpClient()
-# new_client = chromadb.EphemeralClient()
-embeddings = OpenAIEmbeddings()
+# new_client = chromadb.HttpClient()
+new_client = chromadb.EphemeralClient()
+# embeddings = OpenAIEmbeddings()
+
+# Initialize Vertex AI
+vertexai.init(project="ai-demo-432913")
+llm = ChatVertexAI(model_name="gemini-1.5-flash-001", temperature=0.0)
+print(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS'))  # Should not be None
+embeddings = VertexAIEmbeddings(model="textembedding-gecko")
+
 vector_db_dependency_tree = Chroma(
     client=new_client,
     collection_name="risk-evaluation-dependency-tree",
@@ -35,7 +52,6 @@ vector_db_class_level_dependency = Chroma(
     collection_name="risk-evaluation-class-level-dependency",
     embedding_function=embeddings,
 )
-llm = ChatOpenAI(model='gpt-4o', temperature=0.0)
 
 dependency_tree_retriever = vector_db_dependency_tree.as_retriever(search_type="similarity", search_kwargs={"k": 5})
 class_level_dependency_retriever = vector_db_class_level_dependency.as_retriever(search_type="similarity", search_kwargs={"k": 5})
