@@ -6,6 +6,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.prompts.chat import MessagesPlaceholder, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain.agents import AgentExecutor, create_structured_chat_agent
 
+
+
 SYSTEM_PROMPT = """
 You are an AI agent specialized in analyzing software dependencies. You will analyze the impact of upgrading a specific dependency in a Java project.
 And remember that your task is executed based on the successfully building of the project, means no compile error.

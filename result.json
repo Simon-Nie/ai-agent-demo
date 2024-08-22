@@ -201,3 +201,25 @@
         "newVersion": "2.12.7"
     }
 }
+
+
+{
+    "riskLevel": "Low",
+    "comments": "The project only uses basic Joda-Time classes like DateTime and DateTimeZone, and the version increment appears to be a minor change with backward-compatible improvements. Therefore, the risk is low.",
+    "usage": [
+        {
+            "class": "io.spring.application.DateTimeCursor",
+            "path": "src/main/java/io/spring/application/DateTimeCursor.java"
+        },
+        {
+            "class": "io.spring.JacksonCustomizations$DateTimeSerializer",
+            "path": "src/main/java/io/spring/JacksonCustomizations.java"
+        }
+    ],
+    "changes": {
+        "groupId": "joda-time",
+        "artifactId": "joda-time",
+        "oldVersion": "2.10.13",
+        "newVersion": "2.12.7"
+    }
+}
